@@ -15,9 +15,9 @@ public class BasicSortTests implements IntArrayTimedTest {
     int[] result = invoke(
         BubbleSort.class.getSimpleName(),
         BubbleSort::run,
-        IntArrayDataUtil.getUnsortedIntArray()
+        IntArrayDataUtil.getLargeUnsortedIntArray()
     );
-    assertArrayEquals(IntArrayDataUtil.getSortedIntArray(), result);
+    assertArrayEquals(IntArrayDataUtil.getLargeSortedIntArray(), result);
   }
 
 
@@ -26,8 +26,17 @@ public class BasicSortTests implements IntArrayTimedTest {
     int[] result = invoke(
         SelectionSort.class.getSimpleName(),
         SelectionSort::run,
-        IntArrayDataUtil.getUnsortedIntArray()
+        IntArrayDataUtil.getLargeUnsortedIntArray()
     );
-    assertArrayEquals(IntArrayDataUtil.getSortedIntArray(), result);
+    assertArrayEquals(IntArrayDataUtil.getLargeSortedIntArray(), result);
+  }
+  @Test
+  public void testInsertionSortMatchesSorted() {
+    int[] result = invoke(
+        InsertionSort.class.getSimpleName(),
+        InsertionSort::run,
+        IntArrayDataUtil.getLargeUnsortedIntArray()
+    );
+    assertArrayEquals(IntArrayDataUtil.getLargeSortedIntArray(), result);
   }
 }
