@@ -9,9 +9,9 @@ public class IntArrayDataUtil {
   }
 
   public static int[] getSmallUnsortedIntArray() {
-    return new int[] {35, 120, -15};
+    return new int[] {20, 35, -15, 7, 55, 1, -22};
   }
   public static int[] getSmallSortedIntArray() {
-    return new int[] {-15, 35, 120};
+    return new int[] {-22, -15, 1, 7, 20, 35, 55};
   }
 }

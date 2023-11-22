@@ -39,4 +39,14 @@ public class BasicSortTests implements IntArrayTimedTest {
     );
     assertArrayEquals(IntArrayDataUtil.getLargeSortedIntArray(), result);
   }
+
+  @Test
+  public void testShellSortMatchesSorted() {
+    int[] result = invoke(
+        ShellSort.class.getSimpleName(),
+        ShellSort::run,
+        IntArrayDataUtil.getSmallUnsortedIntArray()
+    );
+//    assertArrayEquals(IntArrayDataUtil.ge(), result);
+  }
 }

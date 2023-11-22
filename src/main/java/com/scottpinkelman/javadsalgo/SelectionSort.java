@@ -1,5 +1,11 @@
 package com.scottpinkelman.javadsalgo;
 
+/**
+ * 1. Divides the array into two partitions: sorted and unsorted
+ * 2. Traverses the unsorted partition and finds the largest value
+ * 3. Compares the largest value to the elements in the sorted partition
+ * 4. Swaps the largest value with the last element in the unsorted partition
+ */
 public class SelectionSort {
 
   private SelectionSort() {
@@ -13,7 +19,9 @@ public class SelectionSort {
           indexOfLargestValue = j;
         }
       }
+      // found the largest value index
       int lastIndexValue = intArray[lastUnsortedIndex];
+      // swap the largest value with the last element in the unsorted partition
       intArray[lastUnsortedIndex] = intArray[indexOfLargestValue];
       intArray[indexOfLargestValue] = lastIndexValue;
     }
