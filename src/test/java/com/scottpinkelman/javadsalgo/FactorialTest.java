@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-class FactorialTest {
+class FactorialTest implements TimedTest {
   private static Stream<Arguments> factorialProvider() {
     return Stream.of(
         Arguments.of(3, 6),
@@ -17,17 +17,23 @@ class FactorialTest {
 
   @ParameterizedTest
   @MethodSource("factorialProvider")
-  void testFactorialIterative() {
-    int result = Factorial.runIterative(3);
-    Assertions.assertEquals(6, result);
+  void testFactorialIterative(int n, int expectedFactorial) {
+    int result = invoke(
+        String.format("%s, (%s)", Factorial.class.getSimpleName(), "iterative"),
+        Factorial::runIterative,
+        n
+    );
+    Assertions.assertEquals(expectedFactorial, result);
   }
 
   @ParameterizedTest
   @MethodSource("factorialProvider")
   void testFactorialRecursive(int n, int expectedFactorial) {
-    int result = Factorial.runRecursive(n);
+    int result = invoke(
+        String.format("%s, (%s)", Factorial.class.getSimpleName(), "recursive"),
+        Factorial::runIterative,
+        n
+    );
     Assertions.assertEquals(expectedFactorial, result);
   }
-
-
 }

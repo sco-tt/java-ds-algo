@@ -8,7 +8,7 @@ import util.IntArrayDataUtil;
 import static org.junit.Assert.assertArrayEquals;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BasicSortTests implements IntArrayTimedTest {
+public class BasicSortTests implements TimedTest {
 
   @Test
   public void testBubbleSortMatchesSorted() {
